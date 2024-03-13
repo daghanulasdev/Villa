@@ -9,7 +9,7 @@ using Villa.Entity.Entities;
 
 namespace Villa.Business.Concrete
 {
-    partial class ContactManager : GenericManager<Contact>, IContactService
+    public class ContactManager : GenericManager<Contact>, IContactService
     {
         public ContactManager(IGenericDal<Contact> genericDal) : base(genericDal)
         {

@@ -9,7 +9,7 @@ using Villa.Entity.Entities;
 
 namespace Villa.Business.Concrete
 {
-    partial class CounterManager : GenericManager<Counter>, ICounterService
+    public class CounterManager : GenericManager<Counter>, ICounterService
     {
         public CounterManager(IGenericDal<Counter> genericDal) : base(genericDal)
         {
