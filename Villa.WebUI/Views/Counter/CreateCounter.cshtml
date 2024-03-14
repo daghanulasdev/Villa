@@ -1,8 +1,16 @@
-﻿
+﻿@model CreateCounterDto
 @{
-    ViewData["Title"] = "CreateCounter";
+    ViewData["Title"] = "Yeni Sayaç Bilgisi Ekleme Sayfası";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>CreateCounter</h2>
-
+<form method="post">
+    <label>Başlık</label>
+    <input type="text" asp-for="Title" class="form-control" />
+    <br />
+    <label>Sayaç</label>
+    <input type="text" asp-for="Count" class="form-control" />
+    <br />
+    <button href="Counter/Index" class="btn btn-outline-dark">Geri</button>
+    <button class="btn btn-outline-success">Kaydet</button>
+</form>
