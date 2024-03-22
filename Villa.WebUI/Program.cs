@@ -1,3 +1,4 @@
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using MongoDB.Driver;
 using System.Reflection;
@@ -23,6 +24,7 @@ builder.Services.AddDbContext<VillaContext>(option =>
     option.UseMongoDB(mongoDatabase.Client, mongoDatabase.DatabaseNamespace.DatabaseName);
 });
 
+builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
 builder.Services.AddControllersWithViews();
 
