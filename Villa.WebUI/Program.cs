@@ -1,5 +1,6 @@
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System.Reflection;
 using Villa.Business.Abstract;
@@ -7,6 +8,7 @@ using Villa.Business.Concrete;
 using Villa.DataAccess.Abstract;
 using Villa.DataAccess.Context;
 using Villa.DataAccess.EntityFramework;
+using Villa.Entity.Entities;
 using Villa.WebUI.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +25,8 @@ builder.Services.AddDbContext<VillaContext>(option =>
 {
     option.UseMongoDB(mongoDatabase.Client, mongoDatabase.DatabaseNamespace.DatabaseName);
 });
+
+builder.Services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<VillaContext>();
 
 builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
